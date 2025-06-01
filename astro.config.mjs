@@ -17,4 +17,5 @@ export default defineConfig({
       experimentalReactChildren: true,
     }),
   ],
+  base: "/hkpug-site",
 });
