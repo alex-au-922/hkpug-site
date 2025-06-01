@@ -16,12 +16,13 @@ export function getStaticPaths() {
 }
 
 const { locale } = Astro.params;
+const basePath = Astro.url.pathname.replace(`/${locale}`, "");
 ---
 
 <html lang={locale} data-theme="light" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image" href="/hkpug.jpg" />
+    <link rel="icon" type="image" href={`${basePath}/hkpug.jpg`} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Hong Kong Python User Group</title>

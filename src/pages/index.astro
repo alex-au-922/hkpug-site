@@ -1,12 +1,13 @@
 ---
 import "../styles/global.css";
+const basePath = Astro.url.pathname;
 ---
 
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image" href="/hkpug-site/hkpug.jpg" />
+    <link rel="icon" type="image" href={`/${basePath}/hkpug.jpg`} />
     <title>Hong Kong Python User Group</title>
     <script>
       import { setLocaleCookie, getLocaleFromCookie } from "../utils/locales";
