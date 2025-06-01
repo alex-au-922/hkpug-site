@@ -9,7 +9,7 @@ export default function LocaleSwitcher({ locale }: LocaleProps) {
     if (newLocale !== locale) {
       const currentPath = window.location.pathname;
       let pathWithoutLocale = currentPath.replace(
-        new RegExp(`^/${locale}`),
+        new RegExp(`^/${import.meta.env.BASE_URL}/${locale}`),
         ""
       );
 
@@ -18,7 +18,7 @@ export default function LocaleSwitcher({ locale }: LocaleProps) {
       }
 
       setLocaleCookie(newLocale);
-      window.location.href = `/${newLocale}${pathWithoutLocale}`;
+      window.location.href = `/${import.meta.env.BASE_URL}/${newLocale}${pathWithoutLocale}`;
     }
   };
 

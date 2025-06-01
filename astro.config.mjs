@@ -17,5 +17,6 @@ export default defineConfig({
       experimentalReactChildren: true,
     }),
   ],
+  site: "https://alex-au-922.github.io",
   base: "/hkpug-site",
 });
