@@ -1,0 +1,39 @@
+---
+import { getTranslations } from "../utils/i18n";
+import type LocaleProps from "../interfaces/LocaleProps";
+
+const { locale } = Astro.props as LocaleProps;
+const t = getTranslations(locale);
+const resources = [
+  { name: t("resources.docs"), url: "https://docs.python.org/3/" },
+  {
+    name: t("resources.tutorials"),
+    url: "https://www.python.org/about/gettingstarted/",
+  },
+  { name: t("resources.packages"), url: "https://pypi.org/" },
+  { name: t("resources.github"), url: "https://github.com/hkpug" },
+  {
+    name: t("resources.slack"),
+    url: "https://join.slack.com/t/hkpug/shared_invite/example",
+  },
+];
+---
+
+<h2 class="text-3xl font-bold text-center mb-8">
+  {t("resources.title")}
+</h2>
+
+<div class="flex flex-wrap justify-center gap-4">
+  {
+    resources.map((resource, index) => (
+      <a
+        href={resource.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-lg btn-primary"
+      >
+        {resource.name}
+      </a>
+    ))
+  }
+</div>

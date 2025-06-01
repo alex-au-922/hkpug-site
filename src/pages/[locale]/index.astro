@@ -1,0 +1,56 @@
+---
+import "../../styles/global.css";
+import { locales } from "../../utils/locales";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import AboutUs from "../../components/AboutUs.astro";
+import Events from "../../components/Events";
+import PyConUpdates from "../../components/PyConUpdates";
+import Recruitment from "../../components/Recruitment.astro";
+import CommunityResources from "../../components/CommunityResources.astro";
+
+export function getStaticPaths() {
+  return locales.allLocales.map((locale) => ({
+    params: { locale },
+  }));
+}
+
+const { locale } = Astro.params;
+---
+
+<html lang={locale} data-theme="light" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image" href="/hkpug.jpg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Hong Kong Python User Group</title>
+    <meta
+      name="description"
+      content="Hong Kong Python User Group - A community of Python enthusiasts in Hong Kong"
+    />
+  </head>
+  <body>
+    <Header locale={locale} />
+
+    <main class="container mx-auto px-4 max-w-4/5">
+      <section id="about" class="scroll-mt-16 py-16 max-w-4/5 mx-auto">
+        <AboutUs locale={locale} />
+      </section>
+      <section id="events" class="scroll-mt-16 py-16 max-w-4/5 mx-auto">
+        <Events client:load locale={locale} />
+      </section>
+      <section id="pycon" class="scroll-mt-16 py-16 max-w-4/5 mx-auto">
+        <PyConUpdates client:load locale={locale} />
+      </section>
+      <section id="recruitment" class="scroll-mt-16 py-16 max-w-4/5 mx-auto">
+        <Recruitment locale={locale} />
+      </section>
+      <section id="resources" class="scroll-mt-16 py-16 max-w-4/5 mx-auto">
+        <CommunityResources locale={locale} />
+      </section>
+    </main>
+
+    <Footer locale={locale} />
+  </body>
+</html>

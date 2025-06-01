@@ -1,16 +1,24 @@
 ---
-
+import "../styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image" href="/hkpug.jpg" />
+    <title>Hong Kong Python User Group</title>
+    <script>
+      import { setLocaleCookie, getLocaleFromCookie } from "../utils/locales";
+
+      const preferredLocale = getLocaleFromCookie();
+      setLocaleCookie(preferredLocale);
+
+      const currentOrigin = window.location.origin; // includes protocol, hostname, and port
+      const newUrl = `${currentOrigin}/${preferredLocale}`;
+      console.log(`Redirecting to ${preferredLocale}...`);
+      window.location.replace(newUrl);
+    </script>
+  </head>
+  <body> </body>
 </html>

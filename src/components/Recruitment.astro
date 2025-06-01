@@ -1,0 +1,51 @@
+---
+import { getTranslations } from "../utils/i18n";
+import type LocaleProps from "../interfaces/LocaleProps";
+
+const { locale } = Astro.props as LocaleProps;
+const t = getTranslations(locale);
+const speakerFormUrl = "https://forms.gle/your-speaker-form-url";
+const hostFormUrl = "https://forms.gle/your-host-form-url";
+---
+
+<div class="container mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-8">
+    {t("recruitment.title")}
+  </h2>
+
+  <div class="grid md:grid-cols-2 gap-8">
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h3 class="card-title">{t("recruitment.speakerTitle")}</h3>
+        <p>{t("recruitment.speakerDesc")}</p>
+        <div class="card-actions justify-end">
+          <a
+            href={speakerFormUrl}
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t("recruitment.apply")}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h3 class="card-title">{t("recruitment.hostTitle")}</h3>
+        <p>{t("recruitment.hostDesc")}</p>
+        <div class="card-actions justify-end">
+          <a
+            href={hostFormUrl}
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t("recruitment.apply")}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
