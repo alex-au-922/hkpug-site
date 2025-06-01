@@ -19,4 +19,5 @@ export default defineConfig({
   ],
   site: "https://alex-au-922.github.io",
   base: "/hkpug-site",
+  trailingSlash: "never",
 });
